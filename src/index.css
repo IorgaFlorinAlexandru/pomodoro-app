@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply text-gruvbox-wheat-200 bg-gruvbox-green-400 
+            hover:bg-gruvbox-green-500 active:bg-gruvbox-green-300;
+    }
+    .btn-secondary {
+        @apply text-gruvbox-wheat-200 bg-gruvbox-blue-400 
+            hover:bg-gruvbox-blue-500 active:bg-gruvbox-blue-300;
+    }
+    .btn-tertiary {
+        @apply text-gruvbox-wheat-200 bg-gruvbox-aqua-400 
+            hover:bg-gruvbox-aqua-500 active:bg-gruvbox-aqua-300;
+    }
+    .btn-warning {
+        @apply text-gruvbox-wheat-200 bg-gruvbox-yellow-400 
+            hover:bg-gruvbox-yellow-500 active:bg-gruvbox-yellow-300;
+    }
+    .btn-danger {
+        @apply text-gruvbox-wheat-200 bg-gruvbox-red-400 
+            hover:bg-gruvbox-red-500 active:bg-gruvbox-red-300;
+    }
+}
+
+@font-face {
+    font-family: 'BigBlueTerm';
+    src: url('./assets/fonts/BigBlueTerm437NerdFontMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UbuntuMonoBold';
+    src: url('./assets/fonts/UbuntuMonoNerdFont-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'UbuntuMonoBold';
+}
