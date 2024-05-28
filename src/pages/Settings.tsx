@@ -1,4 +1,19 @@
+import { useState } from 'react';
+import ToggleSwitch from '../components/ToggleSwitch';
+
 function Settings() {
+
+    const [sessionAlarm, setSessionAlarm] = useState(false);
+    const [breakAlarm, setBreakAlarm] = useState(false);
+
+    function toggleSessionAlarm(value: boolean): void {
+        setSessionAlarm(value);
+    }
+
+    function toggleBreakAlarm(value: boolean): void {
+        setBreakAlarm(value);
+    }
+
     return (
      <>
       <div className="flex flex-col p-8">
@@ -21,20 +36,30 @@ function Settings() {
             </p>
          </div>
         </div>
-        <div className="w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
+        <div className="flex justify-between items-center w-full my-1 p-2 px-4 
+            rounded bg-gruvbox-gray-600">
          <div>
             <h4>End of session sound</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                Play an alarm when focus periods ends 
             </p>
          </div>
+         <div className="flex items-center">
+          <span className="mr-4">{sessionAlarm ? 'On' : 'Off'}</span>
+          <ToggleSwitch value={sessionAlarm} onChange={toggleSessionAlarm}/>
+         </div>
         </div>
-        <div className="w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
+        <div className="flex justify-between items-center 
+             w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
          <div>
             <h4>End of break sound</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                Play an alarm when breaks ends 
             </p>
+         </div>
+         <div className="flex items-center">
+          <span className="mr-4">{breakAlarm ? 'On' : 'Off'}</span>
+          <ToggleSwitch value={breakAlarm} onChange={toggleBreakAlarm}/>
          </div>
         </div>
        </div>
