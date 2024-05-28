@@ -8,7 +8,7 @@ export const NavigationRoutes: NavRoute[] = [
     {
         route: '/',
         icon: timerIcon,
-        name: 'Pomodoro'
+        name: 'Focus'
     },
     {
         route: '/statistics',

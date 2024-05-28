@@ -12,7 +12,7 @@ function App() {
     <div className='flex w-full h-screen 
         bg-gruvbox-gray-800 text-gruvbox-wheat-300'>
         <Navbar/>
-        <div className='flex justify-center h-full w-full'>
+        <div className='h-full w-full'>
             <Routes>
                 <Route path="/" element={<Pomodoro />}/>
                 <Route path="/statistics" element={<Statistics />}/>

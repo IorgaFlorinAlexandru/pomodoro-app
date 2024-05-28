@@ -16,6 +16,7 @@ function Timer() {
     const [displayedTime, setDisplayedTime] = useState(getDisplayedTime(time.current));
     const intervalId = useRef<ReturnType<typeof setInterval> | null>(null);
 
+
     useEffect(() => {
         return () => {
             removeInterval();
@@ -132,13 +133,13 @@ function Timer() {
             <div className="flex flex-col justify-center items-center h-full">
                 <h1 className="text-8xl font-bold">{displayedTime}</h1>
                 <div className="flex justify-center items-center h-5
-                    mt-4 p-2 rounded-lg text-sm font-semibold cursor-pointer
+                    mt-3 p-2 rounded-lg text-sm font-semibold cursor-pointer
                     bg-gruvbox-gray-500">
                     <div className="w-2.5 h-2.5 mr-1 rounded-full 
                         bg-gruvbox-purple-400"></div>
                     <span>Study</span>
                 </div>
-                <div className="flex flex-wrap justify-center gap-4 mt-6
+                <div className="flex flex-wrap justify-center gap-4 mt-7
                     font-medium text-lg">
                     {buttons}
                 </div>
