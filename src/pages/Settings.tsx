@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ToggleSwitch from '../components/ToggleSwitch';
+import PomIcon from '../components/PomIcon';
 
 function Settings() {
 
@@ -25,9 +26,10 @@ function Settings() {
        <h2 className="text-4xl">Settings</h2>
        <div className="mt-8">
         <h2 className="text-xl mb-2">Focus Sessions</h2>
-        <div className="flex justify-between items-center w-full my-1 p-2 px-4 
+        <div className="flex items-center w-full my-1 p-2 px-4 
             rounded bg-gruvbox-gray-600">
-         <div>
+         <PomIcon icon="schedule" className="h-6 w-6 mr-4"/>
+         <div className="flex-1">
             <h4>Focus Time</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                 Adjust the lengths of your focus time
@@ -42,9 +44,10 @@ function Settings() {
             <option value="6000">2 hours</option>
          </select>
         </div>
-        <div className="flex justify-between items-center 
+        <div className="flex items-center 
             w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
-         <div>
+         <PomIcon icon="schedule" className="h-6 w-6 mr-4"/>
+         <div className="flex-1">
             <h4>Break Time</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                 Adjust the lengths of your break time
@@ -58,9 +61,10 @@ function Settings() {
             <option value="6000">1 hour</option>
          </select>
         </div>
-        <div className="flex justify-between items-center w-full my-1 p-2 px-4 
+        <div className="flex items-center w-full my-1 p-2 px-4 
             rounded bg-gruvbox-gray-600">
-         <div>
+         <PomIcon icon="music_note" className="h-6 w-6 mr-4"/>
+         <div className="flex-1">
             <h4>End of session sound</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                Play an alarm when focus periods ends 
@@ -71,9 +75,10 @@ function Settings() {
           <ToggleSwitch value={sessionAlarm} onChange={toggleSessionAlarm}/>
          </div>
         </div>
-        <div className="flex justify-between items-center 
+        <div className="flex items-center 
              w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
-         <div>
+         <PomIcon icon="music_note" className="h-6 w-6 mr-4"/>
+         <div className="flex-1">
             <h4>End of break sound</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                Play an alarm when breaks ends 
@@ -87,9 +92,10 @@ function Settings() {
        </div>
        <div className="mt-8">
         <h2 className="text-xl mb-2">General</h2>
-        <div className="flex justify-between items-center
+        <div className="flex items-center
             w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
-         <div>
+         <PomIcon icon="palette" className="h-6 w-6 mr-4"/>
+         <div className="flex-1">
             <h4>App Theme</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                Change the app theme
@@ -102,9 +108,10 @@ function Settings() {
             <option value="2">Solarized Dark</option>
          </select>
         </div>
-        <div className="flex justify-between items-center
+        <div className="flex items-center
             w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
-         <div>
+         <PomIcon icon="notifications" className="h-6 w-6 mr-4"/>
+         <div className="flex-1">
             <h4>Notifications</h4>
             <p className="text-[0.8rem] text-gruvbox-wheat-500">
                Send a notification when the focus or break period ends 
