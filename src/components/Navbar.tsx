@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import { NavigationRoutes } from '../utils/nav.constants';
+import PomIcon from './PomIcon';
 
 function Navbar() {
 
     const navLinks = NavigationRoutes.map(navLink => 
         <li key={navLink.route} className="mb-2 hover:text-gruvbox-wheat-200">
             <NavLink to={navLink.route} className={({ isActive }) => isActive ? 
-                "flex w-full p-1 pl-2 rounded bg-gruvbox-gray-600 text-gruvbox-wheat-200" 
-                : "flex w-full p-1 pl-2 rounded text-inherit"}>
-                    <img src={navLink.icon} />
+                "flex items-center w-full p-1 pl-2 rounded bg-gruvbox-gray-600 text-gruvbox-wheat-200" 
+                : "flex items-center w-full p-1 pl-2 rounded text-inherit"}>
+                    <PomIcon icon={navLink.icon} className="w-6 h-6" />
                     <span className="ml-2">{navLink.name}</span>
             </NavLink>
         </li>

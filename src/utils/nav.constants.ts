@@ -1,28 +1,24 @@
-import timerIcon from '../assets/icons/timer.svg';
-import leaderboardIcon from '../assets/icons/leaderboard.svg';
-import paletteIcon from '../assets/icons/palette.svg';
-import settingsIcon from '../assets/icons/settings.svg';
 import { NavRoute } from '../models/NavRoute';
 
 export const NavigationRoutes: NavRoute[] = [
     {
         route: '/',
-        icon: timerIcon,
+        icon: 'timer',
         name: 'Focus'
     },
     {
         route: '/statistics',
-        icon: leaderboardIcon,
+        icon: 'leaderboard',
         name: 'Statistics'
     },
     {
         route: '/settings',
-        icon: settingsIcon,
+        icon: 'settings',
         name: 'Settings'
     },
     {
         route: '/test/theme',
-        icon: paletteIcon,
+        icon: 'palette',
         name: 'Theme'
     },
 ]

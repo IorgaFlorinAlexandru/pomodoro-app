@@ -38,7 +38,8 @@ function Settings() {
             <option value="1500">25 minutes</option>
             <option value="2000">35 minutes</option>
             <option value="3000">1 hour</option>
-            <option value="6000">1h 30min</option>
+            <option value="6000">1 h 30 min</option>
+            <option value="6000">2 hours</option>
          </select>
         </div>
         <div className="flex justify-between items-center 

@@ -1,5 +1,5 @@
 import Timer from '../components/pomodoro/Timer';
-import tuneIcon from '../assets/icons/tune.svg';
+import PomIcon from '../components/PomIcon';
 
 function Pomodoro() {
     return (
@@ -9,7 +9,7 @@ function Pomodoro() {
             <button className="h-min p-1 rounded-md 
                 text-gruvbox-wheat-200 bg-gruvbox-gray-800 
                 hover:bg-gruvbox-gray-500 active:bg-gruvbox-gray-600"> 
-                <img src={tuneIcon} />
+                <PomIcon icon="tune" className="w-8 h-8"/>
             </button>
           </div>
          <Timer/>

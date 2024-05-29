@@ -1,9 +1,5 @@
-import playIcon from '../../assets/icons/play_arrow.svg';
-import pauseIcon from '../../assets/icons/pause.svg';
-import resetIcon from '../../assets/icons/reset.svg';
-import coffeeIcon from '../../assets/icons/coffee.svg';
-import resumeIcon from '../../assets/icons/resume.svg';
 import { useState, useRef, useEffect } from 'react';
+import PomIcon from '../PomIcon';
 
 function Timer() {
 
@@ -11,7 +7,7 @@ function Timer() {
     const [isPaused, setIsPaused] = useState(false);
     const [isBreakTime, setIsBreakTime] = useState(false);
 
-    const SECONDS = 1500;
+    const SECONDS = 10;
     const time = useRef(SECONDS);
     const [displayedTime, setDisplayedTime] = useState(getDisplayedTime(time.current));
     const intervalId = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -89,20 +85,20 @@ function Timer() {
        {!isPaused ? ( 
          <button onClick={pause} className="flex justify-center 
             items-center w-24 py-1 pr-1 rounded btn-warning">
-            <img className="mr-1" src={pauseIcon} />
+            <PomIcon icon="pause" className="w-6 h-6 mr-1"/>
             Pause 
          </button>
         ) :
         (
          <button onClick={resume} className="flex justify-center 
             items-center w-28 py-1 pr-1 rounded btn-tertiary">
-            <img className="mr-1" src={resumeIcon} />
+            <PomIcon icon="resume" className="w-6 h-6 mr-1"/>
             Resume 
          </button>
         )}
         <button onClick={reset} className="flex justify-center 
             items-center w-24 py-1 pr-1 rounded btn-danger">
-            <img className="mr-1" src={resetIcon} />
+            <PomIcon icon="reset" className="w-6 h-6 mr-1"/>
             Reset 
         </button>
     </>
@@ -111,7 +107,7 @@ function Timer() {
         buttons = <>
             <button onClick={startFocus} className="flex justify-center 
                 items-center w-48 py-1 pr-1 rounded btn-primary">
-                <img className="mr-1" src={playIcon} />
+                <PomIcon icon="play_arrow" className="w-6 h-6 mr-1"/>
                 Start to focus
             </button>
         </>
@@ -121,7 +117,7 @@ function Timer() {
         buttons = <>
             <button onClick={startBreak} className="flex justify-center 
                 items-center w-48 py-1 pr-1 rounded btn-secondary">
-                <img className="mr-1" src={coffeeIcon} />
+                <PomIcon icon="coffee" className="w-6 h-6 mr-1"/>
                 Take a break
             </button>
         </>
