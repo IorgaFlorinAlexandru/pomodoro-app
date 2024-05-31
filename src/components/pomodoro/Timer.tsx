@@ -1,50 +1,53 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import PomIcon from '../PomIcon';
+import { useTimerContext } from '../../context/TimerContext';
 
 function Timer() {
+    const timerService = useTimerContext();
 
-    const [start, setStart] = useState(false);
-    const [isPaused, setIsPaused] = useState(false);
-    const [isBreakTime, setIsBreakTime] = useState(false);
+    const [start, setStart] = useState(timerService.hasStarted);
+    const [isPaused, setIsPaused] = useState(timerService.isPaused);
+    const [isBreakTime, setIsBreakTime] = useState(timerService.isBreak);
 
-    const SECONDS = 10;
-    const time = useRef(SECONDS);
-    const [displayedTime, setDisplayedTime] = useState(getDisplayedTime(time.current));
-    const intervalId = useRef<ReturnType<typeof setInterval> | null>(null);
-
+    const [displayedTime, setDisplayedTime] = useState(getDisplayedTime(timerService.getCurrentTime()));
 
     useEffect(() => {
+        timerService.callback = setTime;
         return () => {
-            removeInterval();
-        };
+            timerService.callback = null;
+        }
     },[]);
 
     function startFocus(): void {
+        timerService.startFocusSession();
         setStart(true);
-        startInterval();
     }
 
     function pause(): void {
+        timerService.pause();
         setIsPaused(true);
-        removeInterval();
     }
 
     function reset(): void {
+        timerService.reset();
         setStart(false);
         setIsPaused(false);
         setIsBreakTime(false);
 
-        removeInterval();
-        time.current = SECONDS;
-        setDisplayedTime(getDisplayedTime(time.current));
+        setDisplayedTime(getDisplayedTime(1500));
     }
 
     function resume(): void {
         setIsPaused(false);
-        startInterval();
+        timerService.resume();
     }
 
     function startBreak(): void {
+        timerService.startBreak();
+    }
+
+    function setTime(seconds: number): void {
+        setDisplayedTime(getDisplayedTime(seconds));
     }
 
     function getDisplayedTime(seconds: number): string {
@@ -59,26 +62,6 @@ function Timer() {
             sStr = sStr.padStart(2,'0');
 
         return `${mStr}:${sStr}`;
-    }
-
-    function startInterval(): void {
-        intervalId.current = setInterval(() => {
-            time.current--;
-
-            if(time.current === 0) {
-                time.current = 300;
-                setIsBreakTime(true);
-                removeInterval();
-            }
-            
-            setDisplayedTime(getDisplayedTime(time.current));
-        },1000);
-    }
-
-    function removeInterval(): void {
-        if(!intervalId.current) return;
-        clearInterval(intervalId.current);
-        intervalId.current = null;
     }
 
     let buttons = <>

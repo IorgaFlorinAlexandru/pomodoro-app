@@ -4,11 +4,12 @@ import Navbar from './components/Navbar';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
 import { Routes, Route, } from 'react-router-dom';
+import { TimerProvider } from './context/TimerContext';
   
 function App() {
 
   return (
-   <>
+   <TimerProvider>
     <div className='flex w-full h-screen 
         bg-gruvbox-gray-800 text-gruvbox-wheat-300'>
         <Navbar/>
@@ -21,7 +22,7 @@ function App() {
             </Routes>
         </div>
     </div>
-   </>
+   </TimerProvider>
   )
 }
 

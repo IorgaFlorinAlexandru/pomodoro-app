@@ -28,7 +28,7 @@ function Settings() {
 
     const timerOptions: PomSelectOption[] = [
      { value: 1500, label: '25 minutes' },
-     { value: 2100, label: '35 minutes' },
+     { value: 1800, label: '30 minutes' },
      { value: 3600, label: '1 hour' },
      { value: 5400, label: '1 h 30 min' },
      { value: 7200, label: '2 hours' },

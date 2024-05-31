@@ -12,7 +12,7 @@ function Pomodoro() {
                 <PomIcon icon="tune" className="w-8 h-8"/>
             </button>
           </div>
-         <Timer/>
+          <Timer/>
          </div>
         </>
     )
