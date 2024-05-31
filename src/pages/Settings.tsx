@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import ToggleSwitch from '../components/ToggleSwitch';
 import PomIcon from '../components/PomIcon';
+import PomSelect from '../components/pomselect/PomSelect';
+import { PomSelectOption } from '../components/pomselect/select.models';
 
 function Settings() {
 
     const [sessionAlarm, setSessionAlarm] = useState(false);
     const [breakAlarm, setBreakAlarm] = useState(false);
     const [sendNotifications, setSendNotifications] = useState(false);
+
+    const [focusTime, setFocusTime] = useState(1500);
+    const [breakTime, setBreakTime] = useState(300);
+    const [appTheme, setAppTheme] = useState(0);
 
     function toggleSessionAlarm(value: boolean): void {
         setSessionAlarm(value);
@@ -18,6 +24,39 @@ function Settings() {
 
     function toggleNotifications(value: boolean): void {
         setSendNotifications(value);
+    }
+
+    const timerOptions: PomSelectOption[] = [
+     { value: 1500, label: '25 minutes' },
+     { value: 2100, label: '35 minutes' },
+     { value: 3600, label: '1 hour' },
+     { value: 5400, label: '1 h 30 min' },
+     { value: 7200, label: '2 hours' },
+    ];
+
+    const breakOptions: PomSelectOption[] = [
+     { value: 300, label: '5 minutes' },
+     { value: 600, label: '10 minutes' },
+     { value: 1800, label: '30 minutes' },
+     { value: 3600, label: '1 hour' },
+    ];
+
+    const themeOptions: PomSelectOption[] = [
+     { value: 0, label: 'Gruvbox' },
+     { value: 1, label: 'Solarized Light' },
+     { value: 2, label: 'Solarized Dark' },
+    ];
+
+    function changeFocusTime(o: PomSelectOption): void {
+        setFocusTime(o.value);
+    }
+
+    function changeBreakTime(o: PomSelectOption): void {
+        setBreakTime(o.value);
+    }
+
+    function changeAppTheme(o: PomSelectOption): void {
+        setAppTheme(o.value);
     }
 
     return (
@@ -35,14 +74,7 @@ function Settings() {
                 Adjust the lengths of your focus time
             </p>
          </div>
-         <select className="w-32 h-8 pl-2 rounded text-gruvbox-wheat-200
-            bg-gruvbox-gray-500 hover:bg-gruvbox-gray-400" defaultValue="1500" >
-            <option value="1500">25 minutes</option>
-            <option value="2000">35 minutes</option>
-            <option value="3000">1 hour</option>
-            <option value="6000">1 h 30 min</option>
-            <option value="6000">2 hours</option>
-         </select>
+         <PomSelect className="w-36" value={focusTime} options={timerOptions} onChange={changeFocusTime}/> 
         </div>
         <div className="flex items-center 
             w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
@@ -53,13 +85,7 @@ function Settings() {
                 Adjust the lengths of your break time
             </p>
          </div>
-         <select className="w-32 h-8 pl-2 rounded text-gruvbox-wheat-200
-            bg-gruvbox-gray-500 hover:bg-gruvbox-gray-400" defaultValue="1500" >
-            <option value="1500">5 minutes</option>
-            <option value="2000">10 minutes</option>
-            <option value="3000">30 minutes</option>
-            <option value="6000">1 hour</option>
-         </select>
+         <PomSelect className="w-36" value={breakTime} options={breakOptions} onChange={changeBreakTime}/> 
         </div>
         <div className="flex items-center w-full my-1 p-2 px-4 
             rounded bg-gruvbox-gray-600">
@@ -101,12 +127,7 @@ function Settings() {
                Change the app theme
             </p>
          </div>
-         <select className="w-44 h-8 pl-2 rounded text-gruvbox-wheat-200
-            bg-gruvbox-gray-500 hover:bg-gruvbox-gray-400" defaultValue="0" >
-            <option value="0">Gruvbox</option>
-            <option value="1">Solarized White</option>
-            <option value="2">Solarized Dark</option>
-         </select>
+         <PomSelect className="w-44" value={appTheme} options={themeOptions} onChange={changeAppTheme}/> 
         </div>
         <div className="flex items-center
             w-full my-1 p-2 px-4 rounded bg-gruvbox-gray-600">
