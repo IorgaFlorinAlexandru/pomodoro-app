@@ -59,7 +59,7 @@ function PomSelect({ value, options, placeholder = '', disabled = false, onChang
 
     return <>
         <div ref={containerRef} className={`relative min-w-32 ${className ? className : ''} `}>
-         <div onClick={handleMenuState} className="flex justify-between items-center  
+         <div onClick={handleMenuState} className="flex justify-between items-center cursor-pointer 
             w-full h-8 pl-3 pr-1 rounded border border-gruvbox-gray-600
             text-gruvbox-wheat-200 bg-gruvbox-gray-500 hover:bg-gruvbox-gray-400">
             {label ? <span>{label}</span>

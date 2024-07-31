@@ -58,7 +58,6 @@ export class TimerService {
         this.currentTime = seconds;
         this.intervalId = setInterval(() => {
             this.currentTime--;
-            console.log(this.currentTime);
             if(this.callback) this.callback(this.currentTime);
 
             if(this.currentTime === 0) this.closeInterval();

@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react';
 import PomIcon from '../PomIcon';
 import { useTimerContext } from '../../context/TimerContext';
+import { useSelector, useDispatch } from 'react-redux';
+import * as pomodoroActions from '../../store/pomodoro/pomodoroSlice';
+import { IRootState } from '../../store/store';
 
 function Timer() {
     const timerService = useTimerContext();
+    const dispatch = useDispatch();
+    const isOnBreak = useSelector((state: IRootState) => state.pomodoro.isOnBreak);
+    console.log(isOnBreak);
 
     const [start, setStart] = useState(timerService.hasStarted);
     const [isPaused, setIsPaused] = useState(timerService.isPaused);

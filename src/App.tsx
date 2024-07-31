@@ -5,10 +5,13 @@ import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
 import { Routes, Route, } from 'react-router-dom';
 import { TimerProvider } from './context/TimerContext';
+import store from './store/store';
+import { Provider } from 'react-redux';
   
 function App() {
 
   return (
+  <Provider store={store}>
    <TimerProvider>
     <div className='flex w-full h-screen 
         bg-gruvbox-gray-800 text-gruvbox-wheat-300'>
@@ -23,6 +26,7 @@ function App() {
         </div>
     </div>
    </TimerProvider>
+   </Provider>
   )
 }
 
