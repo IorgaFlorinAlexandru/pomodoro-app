@@ -33,12 +33,12 @@
 }
 
 @font-face {
-    font-family: 'UbuntuMonoBold';
-    src: url('./assets/fonts/UbuntuMonoNerdFont-Bold.ttf') format('truetype');
+    font-family: 'UbuntuNerdFont';
+    src: url('./assets/fonts/UbuntuNerdFont-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: 'UbuntuMonoBold';
+    font-family: 'UbuntuNerdFont';
 }

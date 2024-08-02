@@ -12,13 +12,13 @@ export const NavigationRoutes: NavRoute[] = [
         name: 'Statistics'
     },
     {
-        route: '/settings',
-        icon: 'settings',
-        name: 'Settings'
-    },
-    {
         route: '/test/theme',
         icon: 'palette',
         name: 'Theme'
+    },
+    {
+        route: '/settings',
+        icon: 'settings',
+        name: 'Settings'
     },
 ]
