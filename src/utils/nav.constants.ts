@@ -9,12 +9,12 @@ export const NavigationRoutes: NavRoute[] = [
     {
         route: '/statistics',
         icon: 'leaderboard',
-        name: 'Statistics'
+        name: 'Stats'
     },
     {
         route: '/test/theme',
         icon: 'palette',
-        name: 'Theme'
+        name: 'Calendar'
     },
     {
         route: '/settings',
